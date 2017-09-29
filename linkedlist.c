@@ -227,11 +227,42 @@ void show(){
 	}
 }
 
+void seprate(){
+	int odd[10];
+	int even[10];
+	int i1=0,i2=0,i=0,j=0;
+	struct node *a=start;
+	while (a != NULL){
+		
+		if(a->data%2 == 0){
+			//even
+			even[i1]=a->data;
+			i1=i1+1;
+		}else{
+			//odd
+			odd[i2]=a->data;
+			i2=i2+1;
+		}
+		a=a->link;
+	}
+	
+	printf("Even numbers are: ");
+	for (i=0;i<i1;i++){	
+	printf("%d ",even[i]);
+	}
+	printf("\n");
+	printf("odd numbers are: ");
+	for (j=0;j<i2;j++){
+	printf("%d ",odd[j]);
+	}
+	printf("\n");
+	
+}
 int main(){
 	int check,cond=1;
 	do{
 		
-		printf("Choose one 1->Insert 2->Delete 3->Show 4->Exit\n");
+		printf("Choose one 1->Insert 2->Delete 3->Show 4->Seperate odd and even 5->Exit\n");
 		scanf("%d",&check);
 		switch(check){
 			case 1:insert();
@@ -240,7 +271,9 @@ int main(){
 				break;
 			case 3:show();
 				break;
-			case 4:
+			case 4:seprate();
+				break;
+			case 5:
 				break;
 			default:printf("Are you serious.\n");
 		}
